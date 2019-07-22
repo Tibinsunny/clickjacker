@@ -21,6 +21,7 @@ if opt==1:
 	file=raw_input("Enter the path to text file (c:/asd/example.txt):  ")
 	fh = open(file)
         for line in fh:
+                tester_tibin=line
         	#print(line)
 		if "http" not in line:
                 	tester_tibin="https://"+line
@@ -30,6 +31,9 @@ if opt==1:
                 	response = urllib2.urlopen(req)
                 	code=response.getcode()
                 	headers = response.info()
+                	#if(redirect!=tester_tibin):
+                                #print tester_tibin+" Redirects"
+                                
                 	"""if code == 301:
                                 tester_tibin=response.geturl()
                                 a="Got Redirected to["+tester_tibin+"] site which"
@@ -61,6 +65,9 @@ elif opt==2:
         response = urllib2.urlopen(req)
 	headers = response.info()
 	redirect=response.geturl()
+	if(redirect!=tester_tibin):
+                print tester_tibin+" Redirects"
+                exit()
 	code=response.getcode()
 	"""if code == 301:
                 tester_tibin=response.geturl()
@@ -80,4 +87,5 @@ elif opt==2:
 		out_url=tester_tibin+a+" Is Vulnerable"
 		print out_url
 		print " "
+
 
