@@ -27,7 +27,7 @@ if opt==1:
                 	tester_tibin="https://"+line
                 
                 try:
-                	req = urllib2.Request(tester_tibin,headers=hdr)
+                	req = urllib2.Request(tester_tibin,headers=hdr,timeout=5)
                 	response = urllib2.urlopen(req)
                 	code=response.getcode()
                 	headers = response.info()
@@ -37,7 +37,7 @@ if opt==1:
                 	"""if code == 301:
                                 tester_tibin=response.geturl()
                                 a="Got Redirected to["+tester_tibin+"] site which"
-	       		        req = urllib2.Request(tester_tibin,headers=hdr)
+	       		        req = urllib2.Request(tester_tibin,headers=hdr,timeout=5)
                                 response = urllib2.urlopen(req)
                                 headers = response.info()"""
 	        	#print response.info()
@@ -61,7 +61,7 @@ elif opt==2:
 	tester_tibin=url
 	if "http" not in url:
 		tester_tibin="http://"+url
-    	req = urllib2.Request(tester_tibin,headers=hdr)
+    	req = urllib2.Request(tester_tibin,headers=hdr,timeout=5)
         response = urllib2.urlopen(req)
 	headers = response.info()
 	redirect=response.geturl()
